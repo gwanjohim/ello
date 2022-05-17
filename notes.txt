@@ -1,0 +1,12 @@
+Notes on what to do
+
+a. add place to view and add products 
+
+b. add section to view and add product categories
+
+
+
+c. add a section to see orders grouped by customerid
+
+
+The application to do orders and dispatches is an angular browser application 
