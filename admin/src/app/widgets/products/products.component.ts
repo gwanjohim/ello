@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -11,7 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class ProductsComponent implements OnInit {
 
   productCategories: Product[] = []
-  constructor(private apiService: ApiService, private router: Router) {
+  constructor(private apiService: ApiService<Product[]>, private router: Router, private route: ActivatedRoute) {
   }
   ngOnInit(): void {
     this.apiService.apiGet('Products').subscribe((res) => {
@@ -21,9 +21,7 @@ export class ProductsComponent implements OnInit {
   }
 
   viewProduct(id: string) {
-    this.router.navigate(['product'])
-    console.log(id);
-
+    this.router.navigate(['product'], { queryParams: { id: id } })
   }
 
 }

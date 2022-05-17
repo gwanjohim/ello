@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Order } from './models/order';
-import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +8,7 @@ import { ApiService } from './services/api.service';
 export class AppComponent implements OnInit {
   title = 'admin';
 
-  constructor(private apiService: ApiService) {
+  constructor() {
   }
   ngOnInit(): void {
 

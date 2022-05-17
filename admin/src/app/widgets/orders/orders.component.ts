@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class OrdersComponent implements OnInit {
 
   categories: Order[] = []
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService<Order[]>) {
 
   }
   ngOnInit(): void {

@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class ProductCategoriesComponent implements OnInit {
 
   productCategories: ProductCategory[] = []
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService<Array<ProductCategory>>) {
   }
   ngOnInit(): void {
     this.apiService.apiGet('ProductCategories').subscribe((res) => {
