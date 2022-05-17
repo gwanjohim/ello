@@ -1,7 +1,7 @@
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 80%;
+    // width: 80%;
 }
 
 td,
@@ -15,7 +15,6 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-body{
-    background-color: azure;
-    width: 80%;
-}
+
+html, body { height: 100%;margin: auto; width: 80%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

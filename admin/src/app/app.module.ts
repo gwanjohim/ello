@@ -12,6 +12,7 @@ import { ProductCategoriesComponent } from './widgets/product-categories/product
 import { ProductsComponent } from './widgets/products/products.component';
 import { ProductComponent } from './widgets/product/product.component';
 import { PageNotFoundComponent } from './widgets/page-not-found/page-not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PageNotFoundComponent } from './widgets/page-not-found/page-not-found.c
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
