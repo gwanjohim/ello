@@ -1,42 +1,37 @@
-<div>
-    <div>
-        <nav style="display: flex; flex-direction: row-reverse; font-size: 40px; ">
+<div style="display: flex; flex-direction: row-reverse; font-size: 40px; ">
+    <div><Button style="font-size: 20px;">Add New</Button></div>
+    <div style="width: 10px;"></div>
+    <div>Products</div>
 
-            <div><Button style="font-size: 20px;">Add New</Button></div>
-            <div style="width: 20px;"></div>
-            <div>Products</div>
-
-        </nav>
-        <table>
-            <tr>
-                <th>Image</th>
-                <!-- <th>Id</th> -->
-                <th>Name</th>
-                <!-- <th>Size</th> -->
-                <th>ViewCount</th>
-                <!-- <th>Details</th> -->
-                <!-- <th>Currency</th> -->
-                <th>Price</th>
-                <th>InStock</th>
-                <!-- <th>ProductCategoryId</th> -->
-                <th>Action</th>
-            </tr>
-            <tr *ngFor="let item of productCategories">
-                <!-- <td>{{item.Id}}</td> -->
-                <td><img style="height: 50px; width:50px" src="{{item.Image}}"></td>
-                <td>{{item.Name}}</td>
-                <!-- <td>{{item.Size}}</td> -->
-                <td>{{item.ViewCount}}</td>
-                <!-- <td>{{item.Currency}}</td> -->
-                <td>{{item.Price}}</td>
-                <td [ngClass]="{'out-of-stock': item.InStock === false,'in-stock': item.InStock === true}">
-                </td>
-                <!-- <td>{{item.ProductCategoryId}}</td> -->
-                <td>
-                    <button type="submit" (click)="viewProduct(item.Id)">View</button>
-                </td>
-
-            </tr>
-        </table>
-    </div>
 </div>
+<table>
+    <tr>
+        <th>Image</th>
+        <!-- <th>Id</th> -->
+        <th>Name</th>
+        <!-- <th>Size</th> -->
+        <th>Views</th>
+        <!-- <th>Details</th> -->
+        <!-- <th>Currency</th> -->
+        <th>Price</th>
+        <th>InStock</th>
+        <!-- <th>ProductCategoryId</th> -->
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let item of productCategories">
+        <!-- <td>{{item.Id}}</td> -->
+        <td><img style="height: 50px; width:50px" src="{{item.Image}}"></td>
+        <td>{{item.Name}}</td>
+        <!-- <td>{{item.Size}}</td> -->
+        <td>{{item.ViewCount}}</td>
+        <!-- <td>{{item.Currency}}</td> -->
+        <td>{{item.Price}}</td>
+        <td [ngClass]="{'out-of-stock': item.InStock === false,'in-stock': item.InStock === true}">
+        </td>
+        <!-- <td>{{item.ProductCategoryId}}</td> -->
+        <td>
+            <button type="submit" (click)="viewProduct(item.Id)">View</button>
+        </td>
+
+    </tr>
+</table>

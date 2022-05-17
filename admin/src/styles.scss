@@ -1,14 +1,14 @@
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 80%;
 }
 
 td,
 th {
     border: 1px solid #dddddd;
     text-align: left;
-    padding: 8px;
+    padding: 2px;
 }
 
 tr:nth-child(even) {
@@ -17,4 +17,5 @@ tr:nth-child(even) {
 
 body{
     background-color: azure;
+    width: 80%;
 }
