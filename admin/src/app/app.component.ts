@@ -9,14 +9,10 @@ import { ApiService } from './services/api.service';
 })
 export class AppComponent implements OnInit {
   title = 'admin';
-  categories: Order[] = []
-  constructor(private apiService: ApiService) {
 
+  constructor(private apiService: ApiService) {
   }
   ngOnInit(): void {
-    this.apiService.apiGet('Orders').subscribe((res) => {
-      let jsonObj: any = JSON.stringify(res)
-      this.categories = JSON.parse(jsonObj);
-    });
+
   }
 }

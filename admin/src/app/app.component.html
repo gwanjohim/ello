@@ -1,32 +1,26 @@
-<nav style="color: orangered; ">
+<div>
+  <h1 style="text-align: center;">Orders</h1>
+</div>
+<div style="color: orangered;">
   <div style="margin: auto">
-    <div>Orders</div>
-    <table>
-      <tr>
-        <th>Id</th>
-        <th>Customer</th>
-        <th>Creation Date</th>
-        <th>Cart</th>
-        <th>Total Amount</th>
-        <th>Order Status</th>
-        <th>Order PaymentOption</th>
-        <th>Order Payment Status</th>
-      </tr>
-      <tr *ngFor="let item of categories">
-        <td>{{item.Id}}</td>
-        <td>{{item.CustomerId}}</td>
-        <td>{{item.CreationDate | date}}</td>
-        <td>{{item.CartId}}</td>
-        <td>{{item.TotalAmount}}</td>
-        <td>{{item.OrderStatus}}</td>
-        <td>{{item.OrderPaymentOption}}</td>
-        <td>{{item.OrderPaymentStatus}}</td>
-      </tr>
-    </table>
+    <app-orders></app-orders>
   </div>
-</nav>
-<div style="color: orangered; background-color: lightblue; height: 300px;">
+</div>
+
+<div>
+  <h1 style="text-align: center;">Product Categories</h1>
+</div>
+<div style="color: orangered;">
   <div style="margin: auto">
-    <h1>Shugli</h1>
+    <app-product-categories></app-product-categories>
+  </div>
+</div>
+
+<div>
+  <h1 style="text-align: center;">Products</h1>
+</div>
+<div style="color: orangered;">
+  <div style="margin: auto">
+    <app-products></app-products>
   </div>
 </div>

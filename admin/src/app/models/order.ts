@@ -5,8 +5,8 @@ export interface Order {
     CartId: string
     TotalAmount: string
     OrderStatus: OrderStatus
-    OrderPaymentOption: string
-    OrderPaymentStatus: string
+    OrderPaymentOption: OrderPaymentOption
+    OrderPaymentStatus: OrderPaymentStatus
 }
 
 export enum OrderStatus {
@@ -14,4 +14,13 @@ export enum OrderStatus {
     OrderDispatched = 1,
     OrderDelivered = 2,
     OrderRejected = 3
+}
+export enum OrderPaymentOption {
+    CashOnDelivery = 0,
+    MPESA = 1,
+}
+export enum OrderPaymentStatus {
+    Paid = 0,
+    NotPaid = 1,
+
 }

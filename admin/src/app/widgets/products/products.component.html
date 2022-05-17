@@ -1,0 +1,35 @@
+<div style="color: orangered; ">
+    <div style="margin: auto">
+        <div>Product Categories</div>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Size</th>
+                <th>ViewCount</th>
+                <th>Details</th>
+                <th>Currency</th>
+                <th>Price</th>
+                <th>InStock</th>
+                <th>ProductCategoryId</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let item of productCategories">
+                <td>{{item.Id}}</td>
+                <td>{{item.Name}}</td>
+                <td>{{item.Size}}</td>
+                <td>{{item.ViewCount}}</td>
+                <td>{{item.Details}}</td>
+                <td>{{item.Currency}}</td>
+                <td>{{item.Price}}</td>
+                <td>{{item.InStock}}</td>
+                <td>{{item.ProductCategoryId}}</td>
+                <td><a href="{{item.Image}}">image</a> </td>
+                <td>
+                    <button type="submit">View</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

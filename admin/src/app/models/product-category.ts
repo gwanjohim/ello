@@ -1,6 +1,5 @@
-class ProductCategory {
-    Id: string | undefined
-    Image: string | undefined
-    Name: string | undefined
-
+export interface ProductCategory {
+    Id: string 
+    Image: string 
+    Name: string 
 }
