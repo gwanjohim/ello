@@ -1,6 +1,6 @@
 export interface Product {
     Name: String
-    Id: String
+    Id: string
     Size: string
     ViewCount: number
     Details: string

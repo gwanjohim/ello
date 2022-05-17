@@ -1,26 +1,12 @@
 <div>
-  <h1 style="text-align: center;">Orders</h1>
-</div>
-<div style="color: orangered;">
-  <div style="margin: auto">
-    <app-orders></app-orders>
-  </div>
-</div>
-
-<div>
-  <h1 style="text-align: center;">Product Categories</h1>
-</div>
-<div style="color: orangered;">
-  <div style="margin: auto">
-    <app-product-categories></app-product-categories>
-  </div>
+  <nav>
+      <ul>
+          <li><a routerLink="/orders" routerLinkActive="active">Orders</a></li>
+          <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
+      </ul>
+  </nav>
 </div>
 
-<div>
-  <h1 style="text-align: center;">Products</h1>
-</div>
-<div style="color: orangered;">
-  <div style="margin: auto">
-    <app-products></app-products>
-  </div>
-</div>
+
+
+<router-outlet></router-outlet>

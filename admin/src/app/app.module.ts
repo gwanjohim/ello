@@ -10,6 +10,8 @@ import { OrderPaymentStatusTransformerPipe } from './pipes/order-payment-status-
 import { OrdersComponent } from './widgets/orders/orders.component';
 import { ProductCategoriesComponent } from './widgets/product-categories/product-categories.component';
 import { ProductsComponent } from './widgets/products/products.component';
+import { ProductComponent } from './widgets/product/product.component';
+import { PageNotFoundComponent } from './widgets/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ProductsComponent } from './widgets/products/products.component';
     OrderPaymentStatusTransformerPipe,
     OrdersComponent,
     ProductCategoriesComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
