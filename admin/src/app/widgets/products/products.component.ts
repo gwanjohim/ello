@@ -10,13 +10,14 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ProductsComponent implements OnInit {
 
-  productCategories: Product[] = []
+  dataSource: Product[] = []
+  displayedColumns =['Image','Name', 'ViewCount','Price','InStock','Edit']
   constructor(private apiService: ApiService<Product[]>, private router: Router, private route: ActivatedRoute) {
   }
   ngOnInit(): void {
     this.apiService.apiGet('Products').subscribe((res) => {
       let response: any = JSON.stringify(res)
-      this.productCategories = JSON.parse(response)
+      this.dataSource = JSON.parse(response)
     })
   }
 

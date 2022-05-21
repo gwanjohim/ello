@@ -1,7 +1,9 @@
 .out-of-stock {
-    background-color: rgba(247, 179, 78, 0.808);
-    height: 20px;
+    color: rgba(255, 121, 68, 0.808);
+    font-weight: bolder;
 }
+
 .in-stock {
-    background-color: rgba(128, 255, 0, 0.514);
+    color: rgba(33, 156, 49, 0.993);
+    font-weight: bolder;
 }
