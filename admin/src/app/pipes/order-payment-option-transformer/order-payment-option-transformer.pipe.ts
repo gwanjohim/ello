@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { OrderPaymentOption } from 'src/app/models/order';
+import { OrderPaymentOption } from 'src/app/models/DTOs/order';
 
 @Pipe({
   name: 'orderPaymentOptionTransformer'

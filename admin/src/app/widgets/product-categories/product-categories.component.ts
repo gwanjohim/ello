@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { ProductCategory } from 'src/app/models/product-category';
 import { ApiService } from 'src/app/services/api.service';
 import { confirm } from 'devextreme/ui/dialog';
+import { ProductCategory } from 'src/app/models/DTOs/product-category';
 
 @Component({
   selector: 'app-product-categories',

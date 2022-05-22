@@ -13,8 +13,7 @@ import { ProductsComponent } from './widgets/products/products.component';
 import { ProductComponent } from './widgets/product/product.component';
 import { PageNotFoundComponent } from './widgets/page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule } from '@angular/material/table';
-import { DxDataGridModule } from 'devextreme-angular';
+import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
 
 @NgModule({
   declarations: [
@@ -26,14 +25,13 @@ import { DxDataGridModule } from 'devextreme-angular';
     ProductCategoriesComponent,
     ProductsComponent,
     ProductComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatTableModule,
     DxDataGridModule,
   ],
   providers: [],
