@@ -1,32 +1,32 @@
 <div>
-    <div style="margin-bottom: 20px;margin-top: 20px">Product Categories</div>
+    <div style="display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+	align-content: stretch;">
+        <div style="padding:20px; font-size: 20px;text-align: end; color: grey; align-self: flex-end;">
+            ({{count}})
+        </div>
+        <div class="title-font">
+            Categories
+        </div>
+    </div>
+    <hr />
     <div style="margin-bottom: 20px;"><Button>Add New</Button></div>
     <div style="margin-bottom: 20px;width: 10px;"></div>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="Name">
-            <th mat-header-cell *matHeaderCellDef> Name</th>
-            <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="Image">
-            <th mat-header-cell *matHeaderCellDef>Image </th>
-            <td mat-cell *matCellDef="let element"> <img style="height: 50px;" src="{{element.Image}}"> </td>
-        </ng-container>
-        <!-- 
-        <mat-text-column name="Edit">
-            <button type="submit">View</button>
-        </mat-text-column> -->
-
-        <ng-container matColumnDef="Edit">
-            <th mat-header-cell *matHeaderCellDef>Image </th>
-            <td mat-cell *matCellDef="let element"> <button>Edit</button> </td>
-        </ng-container>
 
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+    <dx-data-grid [dataSource]="dataSource" keyExpr="Id" (onRowClick)="viewProductCat($event)"
+        [rowAlternationEnabled]="true" [showBorders]="true" class="display-grid"  [focusedRowEnabled]="true">
+        <dxi-column dataField="Image" cellTemplate="cellTemplate"></dxi-column>
+        <div *dxTemplate="let cell of 'cellTemplate'">
+            <img style="height: 50px;" src="{{cell.text}}">
+        </div>
+        <dxi-column dataField="Name"></dxi-column>
+
+    </dx-data-grid>
+
+
+
 </div>

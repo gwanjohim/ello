@@ -14,6 +14,7 @@ import { ProductComponent } from './widgets/product/product.component';
 import { PageNotFoundComponent } from './widgets/page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
+import { DxDataGridModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MatTableModule } from '@angular/material/table';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    DxDataGridModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

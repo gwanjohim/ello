@@ -1,4 +1,4 @@
-<div class="links-row">
+<!-- <div class="links-row">
   <button>
     <a routerLink="/orders" routerLinkActive="active">Orders</a>
   </button>
@@ -8,21 +8,19 @@
   <button>
     <a routerLink="/products" routerLinkActive="active">Products</a>
   </button>
-</div>
+</div> -->
 
-<!-- <div class="grid-container">
-  <div class="grid-item">
-    <app-orders></app-orders>
-  </div>
-  <div class="grid-item">
+
+<div style="display: flex; flex-direction: row; width: 98%; height: 100vh; padding: 10px;">
+
+  <div style="overflow-y: hidden; padding: 20px;">
     <app-product-categories></app-product-categories>
   </div>
-
-  <div class="grid-item">
+  <div style="overflow-y: hidden; padding: 20px;">
     <app-products></app-products>
   </div>
-  <div class="grid-item">
-    <app-products></app-products>
+  <div style="overflow-y: hidden; padding: 20px;">
+    <app-orders></app-orders>
   </div>
-</div> -->
-<router-outlet></router-outlet>
+</div>
+<!-- <router-outlet></router-outlet> -->

@@ -11,6 +11,11 @@ export class OrdersComponent implements OnInit {
 
   displayedColumns: string[] = ['Id', 'CustomerId', 'CreationDate', 'TotalAmount', 'OrderStatus', 'OrderPaymentOption', 'OrderPaymentStatus'];
   dataSource = []
+  count = 0
+
+  scrolling = {rowRenderingMode : 'virtual'}
+
+  paging = {pageSize : 25}
   constructor(private apiService: ApiService<Order[]>) {
 
   }
@@ -18,6 +23,9 @@ export class OrdersComponent implements OnInit {
     this.apiService.apiGet('Orders').subscribe((res) => {
       let jsonObj: any = JSON.stringify(res)
       this.dataSource = JSON.parse(jsonObj);
+      this.count = this.dataSource.length
     });
   }
+
+  viewOrder(eventData: any) { }
 }

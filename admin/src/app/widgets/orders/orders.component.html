@@ -1,59 +1,45 @@
 <div>
-    <div style="margin-bottom: 20px;margin-top: 20px">Orders</div>
-    <div style="margin-bottom: 20px;"><Button>Add New</Button></div>
+    <div style="display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+	align-content: stretch;">
+        <div
+            style="padding:20px; font-size: 20px;text-align: end; color: grey; align-self: flex-end;">
+            ({{count}})
+        </div>
+        <div class="title-font">
+            Orders
+        </div>
+    </div>
+    <hr />
+    <div style="margin-bottom: 20px;margin-left: auto; margin-right: 0px;"><Button style="margin-right: 0;">Add
+            New</Button></div>
     <div style="margin-bottom: 20px;width: 10px;"></div>
 
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="Id">
-            <th mat-header-cell *matHeaderCellDef> Id. </th>
-            <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="CustomerId">
-            <th mat-header-cell *matHeaderCellDef> CustomerId </th>
-            <td mat-cell *matCellDef="let element"> {{element.CustomerId}} </td>
-        </ng-container>
-
-        <!-- Weight Column -->
-        <ng-container matColumnDef="CreationDate">
-            <th mat-header-cell *matHeaderCellDef> Weight </th>
-            <td mat-cell *matCellDef="let element"> {{element.CreationDate}} </td>
-        </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="TotalAmount">
-            <th mat-header-cell *matHeaderCellDef> Symbol </th>
-            <td mat-cell *matCellDef="let element"> {{element.TotalAmount}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="OrderStatus">
-            <th mat-header-cell *matHeaderCellDef> Symbol </th>
-            <td mat-cell *matCellDef="let element"> {{element.OrderStatus | orderStatusTransformer}} </td>
-        </ng-container>
+    <dx-data-grid [dataSource]="dataSource" keyExpr="Id" (onRowClick)="viewOrder($event)" [rowAlternationEnabled]="true"
+        [showBorders]="true" class="display-grid" [focusedRowEnabled]="true" [scrolling]="scrolling" [paging]="paging">
+        <dxi-column dataField="CustomerId"></dxi-column>
+        <dxi-column dataField="CreationDate"></dxi-column>
+        <dxi-column dataField="TotalAmount"></dxi-column>
+        <dxi-column dataField="OrderStatus" cellTemplate="statusTemplate"></dxi-column>
+        <div *dxTemplate="let cell of 'statusTemplate'">
+            <div>{{cell.text | orderStatusTransformer}}</div>
+        </div>
+        <dxi-column dataField="OrderPaymentOption" cellTemplate="paymentOptionTemplate"></dxi-column>
+        <div *dxTemplate="let cell of 'paymentOptionTemplate'">
+            <div>{{cell.text | orderPaymentOptionTransformer}}</div>
+        </div>
+        <dxi-column dataField="OrderPaymentStatus" cellTemplate="paymentStatusTemplate"></dxi-column>
+        <div *dxTemplate="let cell of 'paymentStatusTemplate'">
+            <div>{{cell.text | orderPaymentStatusTransformer}}</div>
+        </div>
 
 
-        <ng-container matColumnDef="OrderPaymentOption">
-            <th mat-header-cell *matHeaderCellDef> Symbol </th>
-            <td mat-cell *matCellDef="let element"> {{element.OrderPaymentOption | orderStatusTransformer}} </td>
-        </ng-container>
+    </dx-data-grid>
 
-
-
-        <ng-container matColumnDef="OrderPaymentStatus">
-            <th mat-header-cell *matHeaderCellDef> Symbol </th>
-            <td mat-cell *matCellDef="let element"> {{element.OrderPaymentStatus | orderPaymentStatusTransformer}} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
 
 
 </div>

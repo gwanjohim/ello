@@ -1,7 +1,17 @@
-table {
-    width: 100%;
-  }
+html,
+body {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-html, body { height: 100%; width: 100%; }
-body { padding: 10; font-family: Roboto, "Helvetica Neue", sans-serif;width: 100%;  }
+.title-font{
+  font-family: 'Knewave', cursive;
+  font-size: xxx-large;
+}
 
+
+.display-grid{
+  height: 50vh;
+}
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
