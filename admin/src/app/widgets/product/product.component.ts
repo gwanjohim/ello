@@ -1,10 +1,9 @@
+import { Directionality } from '@angular/cdk/bidi';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Product } from 'src/app/models/DTOs/product';
-import { DialogProductId } from 'src/app/models/utilities/product-id';
 import { ApiService } from 'src/app/services/api.service';
-import { DialogData } from '../orders-notification/orders-notification.component';
 
 @Component({
   selector: 'app-product',
@@ -14,13 +13,22 @@ import { DialogData } from '../orders-notification/orders-notification.component
 export class ProductComponent implements OnInit {
 
   product: Product = {} as Product;
+  detailsControl = ''
 
 
-  constructor(private apiService: ApiService<Product>, @Inject(MAT_DIALOG_DATA) public data: DialogProductId, public dialogRef: MatDialogRef<ProductComponent>,) { }
+  constructor(private apiService: ApiService<Product>, @Inject(MAT_DIALOG_DATA) public data: Product, public dialogRef: MatDialogRef<ProductComponent>, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.apiService.apiGet<Product>('Products/byId/' + this.data.id).subscribe(prod => {
+    this.apiService.apiGet<Product>('Products/byId/' + this.data.Id).subscribe(prod => {
+      this.detailsControl = prod.Details
       this.product = prod
+    })
+  }
+
+  update(prod: Product) {
+    this.apiService.apiPut<Product>('Products/Update', prod).subscribe(res => {
+      this.product = res;
+      this._snackBar.open('Updated product', '', { duration: 1000, panelClass: 'success-snack-global', })
     })
   }
 

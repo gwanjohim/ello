@@ -1,18 +1,53 @@
-<p></p>
-<p></p>
 <div class="grid-container">
-    <div class="item1"> <Span>Name: </Span> {{product.Name}}</div>
-    <div class="item2">
+    <div class="example-full-width">
         <img style="height: 200px;" src="{{product.Image}}" alt="" srcset="">
     </div>
-    <div class="item3">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.Name">
+    </mat-form-field>
 
-        <Span>Size: </Span>{{product.Size}}
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Size</mat-label>
+        <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.Size">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Views</mat-label>
+        <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.ViewCount">
+    </mat-form-field>
+
+
+
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Currency</mat-label>
+        <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.Currency">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Price</mat-label>
+        <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.Price">
+    </mat-form-field>
+
+    <div class="example-full-width" appearance="fill">
+        <mat-label>In Stock</mat-label>
+        <input type="checkbox" [(ngModel)]="product.InStock">
     </div>
-    <div class="item4"><Span>View Count: </Span>{{product.ViewCount}}</div>
-    <div class="item5"><Span>Details: </Span>{{product.Details}}</div>
-    <div class="item6"><Span>Currency: </Span>{{product.Currency}}</div>
-    <div class="item7"><Span>Price: </Span>{{product.Price}}</div>
-    <div class="item8"><Span>In Stock: </Span>{{product.InStock}}</div>
-    <div class="item9"><Span>Product Category: </Span>{{product.ProductCategoryId}}</div>
+
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Details</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.Details"></textarea>
+    </mat-form-field>
+
+    <div style="margin: auto; display: flex; justify-content: space-between;">
+
+        <div><button mat-raised-button color="primary" (click)="update(product)">Update</button></div>
+        <div><button style="color: red;" mat-button [mat-dialog-close]="product" cdkFocusInitial>Close</button>
+        </div>
+
+
+    </div>
+
 </div>

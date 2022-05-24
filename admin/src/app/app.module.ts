@@ -16,7 +16,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
 import { OrdersNotificationComponent } from './widgets/orders-notification/orders-notification.component';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input'; 
+import {MatButtonModule} from '@angular/material/button'; 
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     HttpClientModule,
     BrowserAnimationsModule,
     DxDataGridModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

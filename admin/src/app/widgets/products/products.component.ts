@@ -15,7 +15,7 @@ export class ProductsComponent implements OnInit {
   dataSource: Product[] = []
   displayedColumns = ['Image', 'Name', 'ViewCount', 'Price', 'InStock', 'Edit']
   count = 0
-  constructor(private apiService: ApiService<Product[]>, private router: Router, private route: ActivatedRoute, public dialog: MatDialog) {
+  constructor(private apiService: ApiService<Product[]>, public dialog: MatDialog) {
   }
   ngOnInit(): void {
     this.apiService.apiGet('Products').subscribe((res) => {
@@ -26,13 +26,20 @@ export class ProductsComponent implements OnInit {
   }
 
   viewProduct(eventData: any) {
-    var id = eventData.key
-    // this.router.navigate(['product'], { queryParams: { id: id } })
 
-    this.dialog.open(ProductComponent, {
+
+    let result = this.dialog.open(ProductComponent, {
       width: '500px',
-      data: { id: id },
+      data: eventData.data,
+      closeOnNavigation: false,
+      disableClose: true
     });
+
+    result.afterClosed().subscribe((updatedProduct: Product) => {
+      let removePreviousProduct = this.dataSource.filter(prod => prod.Id != updatedProduct.Id)
+      removePreviousProduct.push(updatedProduct);
+      this.dataSource = removePreviousProduct
+    })
   }
 
 }
