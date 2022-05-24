@@ -14,6 +14,8 @@ import { ProductComponent } from './widgets/product/product.component';
 import { PageNotFoundComponent } from './widgets/page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
+import { OrdersNotificationComponent } from './widgets/orders-notification/orders-notification.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
     ProductsComponent,
     ProductComponent,
     PageNotFoundComponent,
+    OrdersNotificationComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
     HttpClientModule,
     BrowserAnimationsModule,
     DxDataGridModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
