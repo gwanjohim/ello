@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Product } from 'src/app/models/DTOs/product';
+import { DialogProductId } from 'src/app/models/utilities/product-id';
 import { ApiService } from 'src/app/services/api.service';
+import { DialogData } from '../orders-notification/orders-notification.component';
 
 @Component({
   selector: 'app-product',
@@ -10,18 +13,15 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ProductComponent implements OnInit {
 
-  productId: string = ''
   product: Product = {} as Product;
-  constructor(private route: ActivatedRoute, private apiService: ApiService<Product>) { }
+
+
+  constructor(private apiService: ApiService<Product>, @Inject(MAT_DIALOG_DATA) public data: DialogProductId, public dialogRef: MatDialogRef<ProductComponent>,) { }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.productId = params['id'];
-      this.apiService.apiGet<Product>('Products/byId/' + this.productId).subscribe(prod => {
-
-        this.product = prod
-      })
-    });
+    this.apiService.apiGet<Product>('Products/byId/' + this.data.id).subscribe(prod => {
+      this.product = prod
+    })
   }
 
 }

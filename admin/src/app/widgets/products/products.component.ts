@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/DTOs/product';
 import { ApiService } from 'src/app/services/api.service';
+import { ProductComponent } from '../product/product.component';
 
 @Component({
   selector: 'app-products',
@@ -13,7 +15,7 @@ export class ProductsComponent implements OnInit {
   dataSource: Product[] = []
   displayedColumns = ['Image', 'Name', 'ViewCount', 'Price', 'InStock', 'Edit']
   count = 0
-  constructor(private apiService: ApiService<Product[]>, private router: Router, private route: ActivatedRoute) {
+  constructor(private apiService: ApiService<Product[]>, private router: Router, private route: ActivatedRoute, public dialog: MatDialog) {
   }
   ngOnInit(): void {
     this.apiService.apiGet('Products').subscribe((res) => {
@@ -25,7 +27,12 @@ export class ProductsComponent implements OnInit {
 
   viewProduct(eventData: any) {
     var id = eventData.key
-    this.router.navigate(['product'], { queryParams: { id: id } })
+    // this.router.navigate(['product'], { queryParams: { id: id } })
+
+    this.dialog.open(ProductComponent, {
+      width: '500px',
+      data: { id: id },
+    });
   }
 
 }
