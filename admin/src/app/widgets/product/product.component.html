@@ -1,53 +1,70 @@
-<div class="grid-container">
-    <div class="example-full-width">
-        <img style="height: 200px;" src="{{product.Image}}" alt="" srcset="">
+<div>
+    <div style="display: flex; justify-content: space-between;">
+        <div>
+            <h1 style="font-weight: bold;">{{product.Name}}</h1>
+        </div>
+        <div>
+            <div><button style="color: red;" mat-button [mat-dialog-close]="product" cdkFocusInitial>Close</button>
+            </div>
+        </div>
     </div>
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.Name">
+    <hr>
+    <div style="display: flex; padding: 10px;">
+        <div class="example-full-width">
+            <img style="height: 200px;" src="{{product.Image}}" alt="" srcset="">
+        </div>
+        <div style="padding: 10px;">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.Name">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Size</mat-label>
+                <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.Size">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Views</mat-label>
+                <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.ViewCount">
+            </mat-form-field>
+
+
+
+        </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between;">
+
+        <div>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Currency</mat-label>
+                <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.Currency">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Price</mat-label>
+                <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.Price">
+            </mat-form-field>
+        </div>
+    </div>
+
+
+
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Details</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.Details"
+            style="height: 200px;"></textarea>
     </mat-form-field>
 
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Size</mat-label>
-        <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.Size">
-    </mat-form-field>
 
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Views</mat-label>
-        <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.ViewCount">
-    </mat-form-field>
-
-
-
-
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Currency</mat-label>
-        <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.Currency">
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Price</mat-label>
-        <input matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.Price">
-    </mat-form-field>
-
-    <div class="example-full-width" appearance="fill">
+    <div class="example-full-width" appearance="outline">
         <mat-label>In Stock</mat-label>
         <input type="checkbox" [(ngModel)]="product.InStock">
     </div>
-
-
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Details</mat-label>
-        <textarea matInput placeholder="Ex. It makes me feel..." [(ngModel)]="product.Details"></textarea>
-    </mat-form-field>
-
-    <div style="margin: auto; display: flex; justify-content: space-between;">
-
+    <hr>
+    <div style="margin: auto; display: flex; flex-direction: row-reverse;">
         <div><button mat-raised-button color="primary" (click)="update(product)">Update</button></div>
-        <div><button style="color: red;" mat-button [mat-dialog-close]="product" cdkFocusInitial>Close</button>
-        </div>
-
-
     </div>
-
 </div>
