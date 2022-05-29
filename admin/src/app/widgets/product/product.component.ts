@@ -28,7 +28,7 @@ export class ProductComponent implements OnInit {
   update(prod: Product) {
     this.apiService.apiPut<Product>('Products/Update', prod).subscribe(res => {
       this.product = res;
-      this._snackBar.open('Updated product', '', { duration: 1000, panelClass: 'success-snack-global', })
+      this._snackBar.open(`${res.Name} updated`, '', { duration: 1000, panelClass: 'success-snack-global', })
     })
   }
 

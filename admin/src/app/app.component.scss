@@ -1,0 +1,40 @@
+// Nav bar
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+
+    .title{
+        float: left;
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        padding: 14px 16px;
+        font-size: 50px;
+        font-family: 'Blaka Hollow', cursive;
+        
+    }
+    li {
+        float: right;
+    }
+
+    li a {
+        display: block;
+        color: rgb(0, 0, 0);
+        font-size: larger;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover {
+        background-color: rgb(88, 71, 236);
+        color: white;
+    }
+}
+
+
+
+// Nav bar

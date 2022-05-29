@@ -1,22 +1,45 @@
 <div>
     <div style="display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	align-items: stretch;
-	align-content: stretch;">
-        <div
-            style="padding:20px; font-size: 20px;text-align: end; color: grey; align-self: flex-end;">
-            ({{count}})
-        </div>
+	justify-content: space-between;">
         <div class="title-font">
             Orders
         </div>
+        <div>
+            ({{dataSource.length}})
+        </div>
     </div>
     <hr />
-    <div style="margin-bottom: 20px;margin-left: auto; margin-right: 0px;"><Button style="margin-right: 0;">Add
-            New</Button></div>
-    <div style="margin-bottom: 20px;width: 10px;"></div>
+
+    <div style="display: flex;justify-content: space-between; flex-direction: row-reverse; margin-bottom: 20px;">
+        <div style="display: flex; flex-direction: row-reverse;">
+            <mat-chip-list aria-label="Fish selection">
+                <div *ngIf="(placedOrders > 0); else noPlacedOrders">
+                    <mat-chip color="primary" ng selected>Placed: {{placedOrders}}</mat-chip>
+                </div>
+                <ng-template #noPlacedOrders>
+                    <mat-chip color="primary">Placed: {{placedOrders}}</mat-chip>
+                </ng-template>
+                <div *ngIf="(dispatchedOrders > 0); else noDispatchedOrders">
+                    <mat-chip style="background-color:green" selected>Delivered: {{dispatchedOrders}}</mat-chip>
+                </div>
+                <ng-template #noDispatchedOrders>
+                    <mat-chip>Delivered: {{dispatchedOrders}}</mat-chip>
+                </ng-template>
+                <div *ngIf="(deliveredOrders > 0); else noDeliveredOrders">
+                    <mat-chip color="accent" selected>Paid: {{deliveredOrders}}</mat-chip>
+                </div>
+                <ng-template #noDeliveredOrders>
+                    <mat-chip>Paid: {{deliveredOrders}}</mat-chip>
+                </ng-template>
+                <div *ngIf="(rejectedOrders > 0); else noRejectedOrders">
+                    <mat-chip style="background-color:red" selected>Rejected: {{rejectedOrders}}</mat-chip>
+                </div>
+                <ng-template #noRejectedOrders>
+                    <mat-chip>Paid: {{deliveredOrders}}</mat-chip>
+                </ng-template>
+            </mat-chip-list>
+        </div>
+    </div>
 
 
     <dx-data-grid [dataSource]="dataSource" keyExpr="Id" (onRowClick)="viewOrder($event)" [rowAlternationEnabled]="true"

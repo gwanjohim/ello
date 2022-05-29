@@ -1,22 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Blaka+Hollow&display=swap');
+
 html,
 body {
   overflow-y: hidden;
   overflow-x: hidden;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: large;
 }
 
 .title-font {
-  font-family: 'Knewave', cursive;
-  font-size: xxx-large;
+  font-family: 'Roboto', cursive;
+  font-size: 30px;
   color: grey;
 }
 
 
 .display-grid {
-  height: 50vh;
+  height: 60vh;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
 
 .success-snack-global {
   background-color: green;

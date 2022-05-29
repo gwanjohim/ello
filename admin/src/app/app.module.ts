@@ -17,9 +17,11 @@ import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
 import { OrdersNotificationComponent } from './widgets/orders-notification/orders-notification.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatInputModule} from '@angular/material/input'; 
-import {MatButtonModule} from '@angular/material/button'; 
-import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     FormsModule,
     MatInputModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatChipsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

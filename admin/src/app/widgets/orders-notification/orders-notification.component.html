@@ -1,12 +1,13 @@
-<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<h1 style="text-align: center; font-size: 40px; font-weight: 200;" mat-dialog-title>{{data.OrderStatus |
+  orderStatusTransformer}}</h1>
+<hr>
 <div mat-dialog-content>
-    <p>What's your favorite animal?</p>
-    <!-- <mat-form-field appearance="fill">
-    <mat-label>Favorite Animal</mat-label>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field> -->
+  <div><span class="title-item">Creation Date: </span>{{data.CreationDate | date}}</div>
+  <div><span class="title-item">Payment Option: </span>{{data.OrderPaymentOption | orderPaymentOptionTransformer}}</div>
+  <div><span class="title-item">Payment status: </span>{{data.OrderPaymentStatus | orderPaymentStatusTransformer}}</div>
+  <div><span class="title-item">Total: </span>{{data.TotalAmount}}</div>
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button cdkFocusInitial>Ok</button>
+  <button mat-button (click)="onNoClick()" color="error">Close</button>
+  <button mat-button cdkFocusInitial color="primary">Take me there</button>
 </div>

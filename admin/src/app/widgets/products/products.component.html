@@ -1,23 +1,39 @@
 <div style="display: flex;
-flex-direction: row;
-flex-wrap: nowrap;
-justify-content: space-between;
-align-items: stretch;
-align-content: stretch;">
-    <div style="padding:20px; font-size: 20px;text-align: end; color: grey; align-self: flex-end;">
-        ({{count}})
-    </div>
+justify-content: space-between;">
     <div class="title-font">
         Products
     </div>
+    <div>
+        ({{dataSource.length}})
+    </div>
 </div>
-<hr/>
-<div style="margin-bottom: 20px;"><Button>Add New</Button></div>
-<div style="margin-bottom: 20px;width: 10px;"></div>
+<hr />
+
+
+
+<div style="display: flex;justify-content: space-between;">
+    <div style="margin-bottom: 20px;"><button mat-button>
+            <mat-icon>add</mat-icon> Add New
+        </button></div>
+    <div style="display: flex; flex-direction: row-reverse;">
+        <mat-chip-list aria-label="Fish selection">
+            <mat-chip color="primary" selected>InStock: {{productsInStock}}</mat-chip>
+
+
+            <div *ngIf="(productsOutOfStock > 0); else NoProductsOutOfStock">
+                <mat-chip color="accent" selected>Out of Stock: {{productsOutOfStock}}</mat-chip>
+            </div>
+            <ng-template #NoProductsOutOfStock>
+                <mat-chip>Out of Stock: {{productsOutOfStock}}</mat-chip>
+            </ng-template>
+
+        </mat-chip-list>
+    </div>
+</div>
 
 <div>
     <dx-data-grid [dataSource]="dataSource" keyExpr="Id" (onRowClick)="viewProduct($event)"
-        [rowAlternationEnabled]="true" [showBorders]="true" class="display-grid"  [focusedRowEnabled]="true">
+        [rowAlternationEnabled]="true" [showBorders]="true" class="display-grid" [focusedRowEnabled]="true">
         <dxi-column dataField="Image" cellTemplate="cellTemplate"></dxi-column>
         <div *dxTemplate="let cell of 'cellTemplate'">
             <img style="height: 50px;" src="{{cell.text}}">

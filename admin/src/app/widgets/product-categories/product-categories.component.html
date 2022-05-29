@@ -1,24 +1,22 @@
 <div>
     <div style="display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	align-items: stretch;
-	align-content: stretch;">
-        <div style="padding:20px; font-size: 20px;text-align: end; color: grey; align-self: flex-end;">
-            ({{count}})
-        </div>
+    justify-content: space-between;">
         <div class="title-font">
-            Categories
+            Product Categories
+        </div>
+        <div>
+            ({{dataSource.length}})
         </div>
     </div>
     <hr />
-    <div style="margin-bottom: 20px;"><Button>Add New</Button></div>
+    <div style="margin-bottom: 20px;"><button mat-button>
+            <mat-icon>add</mat-icon> Add New
+        </button></div>
     <div style="margin-bottom: 20px;width: 10px;"></div>
 
 
     <dx-data-grid [dataSource]="dataSource" keyExpr="Id" (onRowClick)="viewProductCat($event)"
-        [rowAlternationEnabled]="true" [showBorders]="true" class="display-grid"  [focusedRowEnabled]="true">
+        [rowAlternationEnabled]="true" [showBorders]="true" class="display-grid" [focusedRowEnabled]="true">
         <dxi-column dataField="Image" cellTemplate="cellTemplate"></dxi-column>
         <div *dxTemplate="let cell of 'cellTemplate'">
             <img style="height: 50px;" src="{{cell.text}}">
