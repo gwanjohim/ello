@@ -4,6 +4,7 @@ import * as signalR from "@microsoft/signalr"
 import { MatDialog } from '@angular/material/dialog';
 import { OrdersNotificationComponent } from 'src/app/widgets/orders-notification/orders-notification.component';
 import { Order } from '../DTOs/order';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class SignalrService {
 
   public data: ChartModel[] = [];
   private hubConnection: signalR.HubConnection = new signalR.HubConnectionBuilder()
-    .withUrl('http://192.168.5.250:5003/hub').build()
+    .withUrl(environment.signalrURL).build()
 
   public startConnection() {
     this.hubConnection
@@ -26,7 +27,7 @@ export class SignalrService {
   public addTransferChartDataListener() {
     this.hubConnection.on('orderReceived', (data) => {
 
-      let order:Order = JSON.parse(data);
+      let order: Order = JSON.parse(data);
 
       this.dialog.open(OrdersNotificationComponent, {
         width: '400px',

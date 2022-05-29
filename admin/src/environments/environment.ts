@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiURL: 'http://192.168.100.168:5003/',
+  signalrURL: 'http://192.168.100.168:5003/hub'
 };
 
 /*

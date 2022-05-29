@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService<T> {
 
-  apiUrl = 'http://192.168.5.250:5003/'
+  apiUrl = environment.apiURL;
+
   constructor(private httpClient: HttpClient) { }
 
   apiGet<T>(endpoint: string): Observable<T> {
