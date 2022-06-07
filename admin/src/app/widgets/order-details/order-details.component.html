@@ -1,0 +1,67 @@
+<div *ngIf="order" style="width: 100%;">
+
+    <div style="display:flex; flex-direction: row; width: 50%;">
+        <div>
+            <ng-container *ngTemplateOutlet="orderDetailsTemplate"></ng-container>
+        </div>
+        <div>
+            <ng-container *ngTemplateOutlet="cartItemsTemplate"></ng-container>
+        </div>
+    </div>
+
+    <div style="display:flex; flex-direction: row;width: 50%;">
+        <ng-container *ngTemplateOutlet="customerTemplate"></ng-container>
+        <ng-container *ngTemplateOutlet="deliveryDetailsTemplate"></ng-container>
+    </div>
+</div>
+
+<ng-template #orderDetailsTemplate>
+    <h3>Order</h3>
+    <div>
+        <div>{{order.OrderPaymentOption}}</div>
+    </div>
+    <div>{{order.Id}}</div>
+    <div>{{order.CustomerId}}</div>
+    <div>{{order.CartId}}</div>
+    <div>{{order.CreationDate}}</div>
+    <div>{{order.TotalAmount}}</div>
+    <hr>
+</ng-template>
+
+<ng-template #customerTemplate>
+    <div *ngIf="customer">
+        <h3>Customer</h3>
+        <div>{{customer.CustomerDeviceID}}</div>
+        <div>{{customer.Id}}</div>
+        <div>{{customer.Name}}</div>
+    </div>
+</ng-template>
+
+<ng-template #cartItemsTemplate>
+    <div *ngIf="cartItems">
+        <h3>Cart Items</h3>
+        <div *ngFor="let cartItem of cartItems">
+            <div>{{cartItem.CartId}}</div>
+            <div>{{cartItem.Id}}</div>
+            <div>{{cartItem.Price}}</div>
+            <div>{{cartItem.ProductId}}</div>
+            <div>{{cartItem.Quantity}}</div>
+            <hr>
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-template #deliveryDetailsTemplate>
+    <div *ngIf="deliveryDetails">
+        <h3>Delivery Details</h3>
+        <div>{{deliveryDetails.AdditionalDetails}}</div>
+        <div>{{deliveryDetails.CustomerId}}</div>
+        <div>{{deliveryDetails.Id}}</div>
+        <div>{{deliveryDetails.LocationDisplayName}}</div>
+        <div>{{deliveryDetails.LocationLatitude}}</div>
+        <div>{{deliveryDetails.LocationLongitude}}</div>
+        <div>{{deliveryDetails.Name}}</div>
+        <div>{{deliveryDetails.PhoneNumber}}</div>
+    </div>
+</ng-template>

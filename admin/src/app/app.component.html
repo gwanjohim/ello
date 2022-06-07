@@ -15,17 +15,19 @@
     </a></li>
 </ul>
 
-<div style="display: flex; flex-direction: row; justify-content: flex-start; height: 100vh; padding: 10px;">
-  <div style="overflow-y: hidden; padding: 20px;">
-    <app-product-categories></app-product-categories>
+<div class="flex-row">
+  <div>
+    <a routerLink="home">Home</a>
   </div>
-  <div style="overflow-y: hidden; padding: 20px;">
-    <app-products></app-products>
+  <div>
+    <a routerLink="orders">Orders</a>
   </div>
-  <div style="overflow-y: hidden; padding: 20px;">
-    <app-orders></app-orders>
+  <div>
+    <a routerLink="products">Products</a>
   </div>
-  <!-- <div style="overflow-y: hidden; padding: 20px;">
-    <app-orders></app-orders>
-  </div> -->
+  <div>
+    <a routerLink="product-categories">Categories</a>
+  </div>
 </div>
+
+<router-outlet></router-outlet>

@@ -22,6 +22,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
+import { OrderDetailsComponent } from './widgets/order-details/order-details.component';
+import { HomeComponent } from './widgets/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,8 @@ import { MatIconModule } from '@angular/material/icon';
     ProductComponent,
     PageNotFoundComponent,
     OrdersNotificationComponent,
+    OrderDetailsComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

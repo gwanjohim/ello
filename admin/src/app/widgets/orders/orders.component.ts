@@ -1,4 +1,5 @@
 import { AfterContentChecked, Component, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Order, OrderStatus } from 'src/app/models/DTOs/order';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -18,7 +19,7 @@ export class OrdersComponent implements OnInit, AfterContentChecked {
   rejectedOrders = 0
   scrolling = { rowRenderingMode: 'virtual' }
   paging = { pageSize: 25 }
-  constructor(private apiService: ApiService<Order[]>) {
+  constructor(private apiService: ApiService<Order[]>, public router: Router) {
 
   }
   ngAfterContentChecked(): void {
@@ -36,7 +37,11 @@ export class OrdersComponent implements OnInit, AfterContentChecked {
   }
 
   viewOrder(eventData: any) {
-    console.error(eventData.data);
+    let order: Order = eventData.data
+    this.router.navigate(
+      ['/order-details'],
+      { queryParams: { orderId: order.Id } }
+    );
 
   }
   MoveNextStatus(order: any) {
