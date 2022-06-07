@@ -5,9 +5,7 @@ import { OrderPaymentStatus } from 'src/app/models/DTOs/order';
   name: 'orderPaymentStatusTransformer'
 })
 export class OrderPaymentStatusTransformerPipe implements PipeTransform {
-
   transform(value: number): string {
     return OrderPaymentStatus[value]
   }
-
 }

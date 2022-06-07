@@ -6,14 +6,16 @@
       </mat-chip>
     </a></li>
   <li><a href="#contact">
-      <mat-chip><mat-icon>lock</mat-icon>Lock</mat-chip>
+      <mat-chip>
+        <mat-icon>lock</mat-icon>Lock
+      </mat-chip>
     </a></li>
   <li><a href="#news">
       <mat-chip selected color="accent">Notifications</mat-chip>
     </a></li>
 </ul>
 
-<div style="display: flex; flex-direction: row; width: 98%; height: 100vh; padding: 10px;">
+<div style="display: flex; flex-direction: row; justify-content: flex-start; height: 100vh; padding: 10px;">
   <div style="overflow-y: hidden; padding: 20px;">
     <app-product-categories></app-product-categories>
   </div>
@@ -23,4 +25,7 @@
   <div style="overflow-y: hidden; padding: 20px;">
     <app-orders></app-orders>
   </div>
+  <!-- <div style="overflow-y: hidden; padding: 20px;">
+    <app-orders></app-orders>
+  </div> -->
 </div>

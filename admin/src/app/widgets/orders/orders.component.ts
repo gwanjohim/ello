@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class OrdersComponent implements OnInit, AfterContentChecked {
 
-  displayedColumns: string[] = ['Id', 'CustomerId', 'CreationDate', 'TotalAmount', 'OrderStatus', 'OrderPaymentOption', 'OrderPaymentStatus'];
+  displayedColumns: string[] = ['Id', 'CreationDate', 'TotalAmount', 'OrderStatus', 'OrderPaymentOption', 'OrderPaymentStatus'];
   dataSource: Order[] = []
   count = 0
   placedOrders = 0
@@ -35,5 +35,12 @@ export class OrdersComponent implements OnInit, AfterContentChecked {
     });
   }
 
-  viewOrder(eventData: any) { }
+  viewOrder(eventData: any) {
+    console.error(eventData.data);
+
+  }
+  MoveNextStatus(order: any) {
+    console.error(order);
+
+  }
 }

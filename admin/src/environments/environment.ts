@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://192.168.100.168:5003/',
-  signalrURL: 'http://192.168.100.168:5003/hub'
+  apiURL: 'http://192.168.5.250:5003/',
+  signalrURL: 'http://192.168.5.250:5003/hub'
 };
 
 /*

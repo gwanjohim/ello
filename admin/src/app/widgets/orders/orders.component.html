@@ -44,12 +44,22 @@
 
     <dx-data-grid [dataSource]="dataSource" keyExpr="Id" (onRowClick)="viewOrder($event)" [rowAlternationEnabled]="true"
         [showBorders]="true" class="display-grid" [focusedRowEnabled]="true" [scrolling]="scrolling" [paging]="paging">
-        <dxi-column dataField="CustomerId"></dxi-column>
-        <dxi-column dataField="CreationDate"></dxi-column>
+        <dxi-column dataField="CreationDate" cellTemplate="dateTemplate"></dxi-column>
         <dxi-column dataField="TotalAmount"></dxi-column>
         <dxi-column dataField="OrderStatus" cellTemplate="statusTemplate"></dxi-column>
+
+        <!-- <dxi-column caption="Action" dataField="OrderStatus" cellTemplate="orderStatusAction"></dxi-column>
+        <div *dxTemplate="let cell of 'orderStatusAction'">
+            <div><Button>Next</Button></div>
+        </div> -->
+
+        <div *dxTemplate="let cell of 'dateTemplate'">
+            <div>{{cell.text | date}}</div>
+        </div>
         <div *dxTemplate="let cell of 'statusTemplate'">
-            <div>{{cell.text | orderStatusTransformer}}</div>
+            <div>
+                <button (click)="MoveNextStatus($event)">{{cell.text | orderStatusTransformer}}</button>
+            </div>
         </div>
         <dxi-column dataField="OrderPaymentOption" cellTemplate="paymentOptionTemplate"></dxi-column>
         <div *dxTemplate="let cell of 'paymentOptionTemplate'">

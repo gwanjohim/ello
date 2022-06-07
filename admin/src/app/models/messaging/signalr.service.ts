@@ -26,9 +26,7 @@ export class SignalrService {
 
   public addTransferChartDataListener() {
     this.hubConnection.on('orderReceived', (data) => {
-
       let order: Order = JSON.parse(data);
-
       this.dialog.open(OrdersNotificationComponent, {
         width: '400px',
         data: order,
