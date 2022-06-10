@@ -33,7 +33,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: white;
+  background-color: grey;
 
   .title{
       float: left;
@@ -41,8 +41,7 @@ body {
       text-align: center;
       text-decoration: none;
       padding: 14px 16px;
-      font-size: 50px;
-      font-family: 'Blaka Hollow', cursive;
+      font-size: 30px;
       
   }
   li {
@@ -72,6 +71,9 @@ body {
   }
 }
 
-
+.single-page {
+  width: 90%; // the width of a page item
+  margin: auto;
+}
 
 // Nav bar

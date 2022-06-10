@@ -16,10 +16,10 @@ export class ProductComponent implements OnInit {
   detailsControl = ''
 
 
-  constructor(private apiService: ApiService<Product>, @Inject(MAT_DIALOG_DATA) public data: Product, public dialogRef: MatDialogRef<ProductComponent>, private _snackBar: MatSnackBar) { }
+  constructor(private apiService: ApiService<Product>, @Inject(MAT_DIALOG_DATA) public data: string, public dialogRef: MatDialogRef<ProductComponent>, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.apiService.apiGet<Product>('Products/byId/' + this.data.Id).subscribe(prod => {
+    this.apiService.apiGet<Product>('Products/byId/' + this.data).subscribe(prod => {
       this.detailsControl = prod.Details
       this.product = prod
     })

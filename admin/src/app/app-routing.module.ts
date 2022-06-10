@@ -11,13 +11,13 @@ import { ProductsComponent } from './widgets/products/products.component';
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'orders', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'orders', component: OrdersComponent },
   { path: 'order-details', component: OrderDetailsComponent },
-  { path: 'product', component: ProductComponent },  // you must add your component here
-  { path: 'products', component: ProductsComponent },  // you must add your component here
-  { path: 'product-categories', component: ProductCategoriesComponent },  // you must add your component here
+  { path: 'product', component: ProductComponent },  
+  { path: 'products', component: ProductsComponent },  
+  { path: 'product-categories', component: ProductCategoriesComponent },  
   { path: '**', component: PageNotFoundComponent }
 ];
 

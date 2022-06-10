@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { CartItem } from 'src/app/models/DTOs/cart-item';
 import { Customer } from 'src/app/models/DTOs/customer';
 import { CustomerDeliveryDetails } from 'src/app/models/DTOs/customer-delivery-details';
 import { Order } from 'src/app/models/DTOs/order';
 import { ApiService } from 'src/app/services/api.service';
+import { ProductComponent } from '../product/product.component';
 
 @Component({
   selector: 'app-order-details',
@@ -20,7 +22,7 @@ export class OrderDetailsComponent implements OnInit {
   deliveryDetails: CustomerDeliveryDetails = {} as CustomerDeliveryDetails
 
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService<Order>) { }
+  constructor(private route: ActivatedRoute, private apiService: ApiService<Order>, public dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -41,6 +43,15 @@ export class OrderDetailsComponent implements OnInit {
           this.customer = cust
         })
       })
+    });
+  }
+
+  showProdcut(productId:string){
+    let result = this.dialog.open(ProductComponent, {
+      width: '500px',
+      data: productId,//provide product id
+      closeOnNavigation: false,
+      disableClose: true
     });
   }
 

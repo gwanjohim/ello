@@ -34,7 +34,7 @@ export class ProductsComponent implements OnInit, AfterContentChecked {
   viewProduct(eventData: any) {
     let result = this.dialog.open(ProductComponent, {
       width: '500px',
-      data: eventData.data,
+      data: eventData.data.Id,//provide product id
       closeOnNavigation: false,
       disableClose: true
     });

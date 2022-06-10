@@ -1,67 +1,131 @@
-<div *ngIf="order" style="width: 100%;">
+<div *ngIf="order" class="single-page">
 
-    <div style="display:flex; flex-direction: row; width: 50%;">
-        <div>
+    <div style="display: flex;
+	justify-content: space-between;">
+        <div class="title-font">
+            Order Details
+        </div>
+        <!-- <div>
+            ({{dataSource.length}})
+        </div> -->
+    </div>
+    <hr />
+
+
+    <div style="display:flex; flex-direction: row;  width: 100%; justify-content: space-around;">
+        <div class="section-div">
             <ng-container *ngTemplateOutlet="orderDetailsTemplate"></ng-container>
         </div>
-        <div>
+        <div class="section-div">
             <ng-container *ngTemplateOutlet="cartItemsTemplate"></ng-container>
         </div>
     </div>
 
-    <div style="display:flex; flex-direction: row;width: 50%;">
-        <ng-container *ngTemplateOutlet="customerTemplate"></ng-container>
-        <ng-container *ngTemplateOutlet="deliveryDetailsTemplate"></ng-container>
-    </div>
 </div>
 
 <ng-template #orderDetailsTemplate>
-    <h3>Order</h3>
-    <div>
-        <div>{{order.OrderPaymentOption}}</div>
+    <h6>Order</h6>
+    <div class="form-group">
+        <label for="alterEgo">Payment Option</label>
+        <input type="text" class="form-control" id="alterEgo"
+            [ngModel]="order.OrderPaymentOption | orderPaymentOptionTransformer" name="alterEgo">
     </div>
-    <div>{{order.Id}}</div>
-    <div>{{order.CustomerId}}</div>
-    <div>{{order.CartId}}</div>
-    <div>{{order.CreationDate}}</div>
-    <div>{{order.TotalAmount}}</div>
+    <!-- <div class="form-group">
+        <label>Order Id</label>
+        <input type="text" class="form-control" [ngModel]="order.Id">
+    </div> -->
+    <div class="form-group">
+        <label>Customer</label>
+        <input type="text" class="form-control" [ngModel]="customer.Id">
+    </div>
+    <div class="form-group">
+        <label>Cart</label>
+        <input type="text" class="form-control" [ngModel]="order.CartId">
+    </div>
+    <div class="form-group">
+        <label>Creation Date</label>
+        <input type="text" class="form-control" [ngModel]="order.CreationDate | date">
+    </div>
+    <div class="form-group">
+        <label>Total Amount</label>
+        <input type="text" class="form-control" [ngModel]="order.TotalAmount">
+    </div>
+    <div *ngIf="customer">
+        <h6>Customer</h6>
+        <div class="form-group">
+            <label>Device Id</label>
+            <input type="text" class="form-control" [ngModel]="customer.CustomerDeviceID">
+        </div>
+        <div class="form-group">
+            <label>Customer Name</label>
+            <input type="text" class="form-control" [ngModel]="customer.Name">
+        </div>
+    </div>
+
+    <h6>Delivery Details</h6>
+
+    <div class="form-group">
+        <label>Additional Details</label>
+        <input type="text" class="form-control" [ngModel]="deliveryDetails.AdditionalDetails">
+    </div>
+    <div class="form-group">
+        <label>Location</label>
+        <input type="text" class="form-control" [ngModel]="deliveryDetails.LocationDisplayName">
+    </div>
+    <div class="form-group">
+        <label>Location Lat</label>
+        <input type="text" class="form-control" [ngModel]="deliveryDetails.LocationLatitude">
+    </div>
+    <div class="form-group">
+        <label>Location Long</label>
+        <input type="text" class="form-control" [ngModel]="deliveryDetails.LocationLongitude">
+    </div>
+    <div class="form-group">
+        <label>Contact</label>
+        <input type="text" class="form-control" [ngModel]="deliveryDetails.Name">
+    </div>
+    <div class="form-group">
+        <label>Phone Number</label>
+        <input type="text" class="form-control" [ngModel]="deliveryDetails.PhoneNumber">
+    </div>
     <hr>
 </ng-template>
 
-<ng-template #customerTemplate>
-    <div *ngIf="customer">
-        <h3>Customer</h3>
-        <div>{{customer.CustomerDeviceID}}</div>
-        <div>{{customer.Id}}</div>
-        <div>{{customer.Name}}</div>
-    </div>
-</ng-template>
 
 <ng-template #cartItemsTemplate>
     <div *ngIf="cartItems">
-        <h3>Cart Items</h3>
+        <h6>Cart Items</h6>
         <div *ngFor="let cartItem of cartItems">
-            <div>{{cartItem.CartId}}</div>
-            <div>{{cartItem.Id}}</div>
-            <div>{{cartItem.Price}}</div>
-            <div>{{cartItem.ProductId}}</div>
-            <div>{{cartItem.Quantity}}</div>
+
+            <div class="form-group">
+                <label>Cart ID</label>
+                <input type="text" class="form-control" [ngModel]="cartItem.CartId">
+            </div>
+
+            <div class="form-group">
+                <label>Cart Item</label>
+                <input type="text" class="form-control" [ngModel]="cartItem.Id">
+            </div>
+
+            <div class="form-group">
+                <label>Cart Item Price</label>
+                <input type="text" class="form-control" [ngModel]="cartItem.Price">
+            </div>
+
+            <div class="form-group">
+                <label>Product</label>
+                <button mat-button color="accent" (click)="showProdcut(cartItem.ProductId)">Show Product</button>
+            </div>
+
+            <div class="form-group">
+                <label>Quantity</label>
+                <input type="text" class="form-control" [ngModel]="cartItem.Quantity">
+            </div>
+            <div class="form-group">
+                <label>Total Price</label>
+                <input type="text" class="form-control" [ngModel]="(cartItem.Quantity * cartItem.Price)">
+            </div>
             <hr>
         </div>
-    </div>
-</ng-template>
-
-
-<ng-template #deliveryDetailsTemplate>
-    <div *ngIf="deliveryDetails">
-        <h3>Delivery Details</h3>
-        <div>{{deliveryDetails.AdditionalDetails}}</div>
-        <div>{{deliveryDetails.CustomerId}}</div>
-        <div>{{deliveryDetails.Id}}</div>
-        <div>{{deliveryDetails.LocationDisplayName}}</div>
-        <div>{{deliveryDetails.LocationLatitude}}</div>
-        <div>{{deliveryDetails.LocationLongitude}}</div>
-        <div>{{deliveryDetails.Name}}</div>
-        <div>{{deliveryDetails.PhoneNumber}}</div>
     </div>
 </ng-template>

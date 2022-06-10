@@ -1,0 +1,29 @@
+.section-div {
+    border: 1px solid;
+    border-radius: 20px;
+    width: 40%;
+    padding: 10px;
+}
+
+.item-caption {
+    font-weight: bold;
+    color: green;
+}
+
+.form-group {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+    label {
+        width: 50%;
+    }
+
+    input {
+        width: 50%;
+        border-radius: 5px;
+        padding: 2px;
+    }
+}
