@@ -24,6 +24,11 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { OrderDetailsComponent } from './widgets/order-details/order-details.component';
 import { HomeComponent } from './widgets/home/home.component';
+
+import { HttpClientJsonpModule } from '@angular/common/http'; //used by angular/google maps
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +56,8 @@ import { HomeComponent } from './widgets/home/home.component';
     MatButtonModule,
     MatSnackBarModule,
     MatChipsModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientJsonpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
