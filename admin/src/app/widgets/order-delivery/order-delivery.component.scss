@@ -1,0 +1,78 @@
+.order-delivery-detail {
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    height: 20%;
+    background-color: rgb(238, 206, 147);
+    color: rgb(136, 136, 241);
+
+    margin-bottom: 10px;
+    left: 0px;
+    z-index: 10;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 4px;
+}
+
+.order-delivery-map-order {
+    height: 40%;
+    width: 100%;
+    padding: 0px;
+    left: 0px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    flex-wrap: wrap;
+
+}
+
+
+
+.map {
+    max-width: 75%;
+    min-width: 100%;
+    // width: ;
+    height: 400px;
+    background-color: black;
+
+}
+
+.single-map {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.order-del-google-map-orderId {
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.actions-order-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;
+    padding-top: 2%;
+
+    div {
+        padding: 1px;
+    }
+    
+}
+
+.leave-now-button {
+    font-size: 30px;
+    right: 0px;
+
+}
+
+.toggle-live-traffic{
+    font-size: 30px;
+}

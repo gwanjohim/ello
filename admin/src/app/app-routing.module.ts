@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { GoogleMapsDemoComponent } from './widgets/google-maps-demo/google-maps-demo.component';
 import { HomeComponent } from './widgets/home/home.component';
+import { OrderDeliveryComponent } from './widgets/order-delivery/order-delivery.component';
 import { OrderDetailsComponent } from './widgets/order-details/order-details.component';
 import { OrdersComponent } from './widgets/orders/orders.component';
 import { PageNotFoundComponent } from './widgets/page-not-found/page-not-found.component';
@@ -15,9 +17,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'orders', component: OrdersComponent },
   { path: 'order-details', component: OrderDetailsComponent },
-  { path: 'product', component: ProductComponent },  
-  { path: 'products', component: ProductsComponent },  
-  { path: 'product-categories', component: ProductCategoriesComponent },  
+  { path: 'product', component: ProductComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'product-categories', component: ProductCategoriesComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

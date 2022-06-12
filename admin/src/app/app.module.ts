@@ -22,10 +22,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
+
 import { OrderDetailsComponent } from './widgets/order-details/order-details.component';
 import { HomeComponent } from './widgets/home/home.component';
 
-import { HttpClientJsonpModule } from '@angular/common/http'; //used by angular/google maps
+import { HttpClientJsonpModule } from '@angular/common/http';
+import { GoogleMapsDemoComponent } from './widgets/google-maps-demo/google-maps-demo.component'; //used by angular/google maps
+import { GoogleMapsModule } from '@angular/google-maps';
+import { OrderDeliveryComponent } from './widgets/order-delivery/order-delivery.component';
 
 
 
@@ -43,6 +49,8 @@ import { HttpClientJsonpModule } from '@angular/common/http'; //used by angular/
     OrdersNotificationComponent,
     OrderDetailsComponent,
     HomeComponent,
+    GoogleMapsDemoComponent,
+    OrderDeliveryComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,8 +65,9 @@ import { HttpClientJsonpModule } from '@angular/common/http'; //used by angular/
     MatSnackBarModule,
     MatChipsModule,
     MatIconModule,
-    HttpClientJsonpModule
-  ],
+    HttpClientJsonpModule,
+    GoogleMapsModule,
+    MatSlideToggleModule],
   providers: [],
   bootstrap: [AppComponent]
 })
