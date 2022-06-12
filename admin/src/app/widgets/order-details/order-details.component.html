@@ -1,18 +1,11 @@
-<div *ngIf="order" class="single-page">
+<div *ngIf="order" class="global-single-page">
 
-    <div style="display: flex;
-	justify-content: space-between;">
-        <div class="title-font">
-            Order Details
-        </div>
-        <!-- <div>
-            ({{dataSource.length}})
-        </div> -->
+    <div class="global-title-font">
+        Order Details
     </div>
     <hr />
 
-
-    <div style="display:flex; flex-direction: row;  width: 100%; justify-content: space-around;">
+    <div class="order-details-parent">
         <div class="section-div">
             <ng-container *ngTemplateOutlet="orderDetailsTemplate"></ng-container>
         </div>
@@ -20,73 +13,58 @@
             <ng-container *ngTemplateOutlet="cartItemsTemplate"></ng-container>
         </div>
     </div>
-
+    <hr />
+    <div class="actions">
+        <button>Start Delivery</button>
+    </div>
 </div>
 
 <ng-template #orderDetailsTemplate>
     <h6>Order</h6>
+    <hr>
     <div class="form-group">
         <label for="alterEgo">Payment Option</label>
-        <input type="text" class="form-control" id="alterEgo"
+        <input disabled type="text" class="form-control" id="alterEgo"
             [ngModel]="order.OrderPaymentOption | orderPaymentOptionTransformer" name="alterEgo">
     </div>
-    <!-- <div class="form-group">
-        <label>Order Id</label>
-        <input type="text" class="form-control" [ngModel]="order.Id">
-    </div> -->
-    <div class="form-group">
-        <label>Customer</label>
-        <input type="text" class="form-control" [ngModel]="customer.Id">
-    </div>
-    <div class="form-group">
-        <label>Cart</label>
-        <input type="text" class="form-control" [ngModel]="order.CartId">
-    </div>
+
     <div class="form-group">
         <label>Creation Date</label>
-        <input type="text" class="form-control" [ngModel]="order.CreationDate | date">
+        <input disabled type="text" class="form-control" [ngModel]="order.CreationDate | date">
     </div>
     <div class="form-group">
         <label>Total Amount</label>
-        <input type="text" class="form-control" [ngModel]="order.TotalAmount">
+        <input disabled type="text" class="form-control" [ngModel]="order.TotalAmount">
     </div>
     <div *ngIf="customer">
         <h6>Customer</h6>
+        <hr>
         <div class="form-group">
             <label>Device Id</label>
-            <input type="text" class="form-control" [ngModel]="customer.CustomerDeviceID">
+            <input disabled type="text" class="form-control" [ngModel]="customer.CustomerDeviceID">
         </div>
         <div class="form-group">
             <label>Customer Name</label>
-            <input type="text" class="form-control" [ngModel]="customer.Name">
+            <input disabled type="text" class="form-control" [ngModel]="customer.Name">
         </div>
     </div>
 
     <h6>Delivery Details</h6>
+    <hr>
+
 
     <div class="form-group">
-        <label>Additional Details</label>
-        <input type="text" class="form-control" [ngModel]="deliveryDetails.AdditionalDetails">
-    </div>
-    <div class="form-group">
         <label>Location</label>
-        <input type="text" class="form-control" [ngModel]="deliveryDetails.LocationDisplayName">
+        <input disabled type="text" class="form-control" [ngModel]="deliveryDetails.LocationDisplayName">
     </div>
-    <div class="form-group">
-        <label>Location Lat</label>
-        <input type="text" class="form-control" [ngModel]="deliveryDetails.LocationLatitude">
-    </div>
-    <div class="form-group">
-        <label>Location Long</label>
-        <input type="text" class="form-control" [ngModel]="deliveryDetails.LocationLongitude">
-    </div>
+
     <div class="form-group">
         <label>Contact</label>
-        <input type="text" class="form-control" [ngModel]="deliveryDetails.Name">
+        <input disabled type="text" class="form-control" [ngModel]="deliveryDetails.Name">
     </div>
     <div class="form-group">
         <label>Phone Number</label>
-        <input type="text" class="form-control" [ngModel]="deliveryDetails.PhoneNumber">
+        <input disabled type="text" class="form-control" [ngModel]="deliveryDetails.PhoneNumber">
     </div>
     <hr>
 </ng-template>
@@ -95,21 +73,12 @@
 <ng-template #cartItemsTemplate>
     <div *ngIf="cartItems">
         <h6>Cart Items</h6>
+        <hr>
         <div *ngFor="let cartItem of cartItems">
 
             <div class="form-group">
-                <label>Cart ID</label>
-                <input type="text" class="form-control" [ngModel]="cartItem.CartId">
-            </div>
-
-            <div class="form-group">
-                <label>Cart Item</label>
-                <input type="text" class="form-control" [ngModel]="cartItem.Id">
-            </div>
-
-            <div class="form-group">
                 <label>Cart Item Price</label>
-                <input type="text" class="form-control" [ngModel]="cartItem.Price">
+                <input disabled type="text" class="form-control" [ngModel]="cartItem.Price">
             </div>
 
             <div class="form-group">
@@ -119,11 +88,11 @@
 
             <div class="form-group">
                 <label>Quantity</label>
-                <input type="text" class="form-control" [ngModel]="cartItem.Quantity">
+                <input disabled type="text" class="form-control" [ngModel]="cartItem.Quantity">
             </div>
             <div class="form-group">
                 <label>Total Price</label>
-                <input type="text" class="form-control" [ngModel]="(cartItem.Quantity * cartItem.Price)">
+                <input disabled type="text" class="form-control" [ngModel]="(cartItem.Quantity * cartItem.Price)">
             </div>
             <hr>
         </div>

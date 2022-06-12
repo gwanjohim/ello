@@ -1,33 +1,36 @@
-<ul class="navbar">
-  <div class="title">Tush</div>
-  <li><a href="#about">
-      <mat-chip>
-        <mat-icon>logout</mat-icon>Logout
-      </mat-chip>
-    </a></li>
-  <li><a href="#contact">
-      <mat-chip>
-        <mat-icon>lock</mat-icon>Lock
-      </mat-chip>
-    </a></li>
-  <li><a href="#news">
-      <mat-chip selected color="accent">Notifications</mat-chip>
-    </a></li>
-</ul>
+<div>
+  <ul class="navbar">
+    <div class="title">Tush</div>
+    <li><a href="#about">
+        <mat-chip>
+          <mat-icon>logout</mat-icon>Logout
+        </mat-chip>
+      </a></li>
+    <li><a href="#contact">
+        <mat-chip>
+          <mat-icon>lock</mat-icon>Lock
+        </mat-chip>
+      </a></li>
+    <li><a href="#news">
+        <mat-chip selected color="accent">Notifications</mat-chip>
+      </a></li>
+  </ul>
 
-<div class="flex-row">
-  <div>
-    <a routerLink="home">Home</a>
+  <div class="flex-row">
+    <div>
+      <a routerLink="home">Home</a>
+    </div>
+    <div>
+      <a routerLink="orders">Orders</a>
+    </div>
+    <div>
+      <a routerLink="products">Products</a>
+    </div>
+    <div>
+      <a routerLink="product-categories">Categories</a>
+    </div>
   </div>
-  <div>
-    <a routerLink="orders">Orders</a>
-  </div>
-  <div>
-    <a routerLink="products">Products</a>
-  </div>
-  <div>
-    <a routerLink="product-categories">Categories</a>
-  </div>
+
+  <router-outlet></router-outlet>
+
 </div>
-
-<router-outlet></router-outlet>
