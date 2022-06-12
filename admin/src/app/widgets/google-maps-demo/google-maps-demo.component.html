@@ -1,15 +1,15 @@
 <div *ngIf="center !== undefined">
-  <google-map height="400px" width="100%" [center]="center" [zoom]="zoom">
+  <google-map height="500px" width="100%" [center]="center" [zoom]="zoom">
     <map-directions-renderer *ngIf="(directionsResults$ | async) as directionsResults" [directions]="directionsResults">
     </map-directions-renderer>
     <!-- <map-transit-layer></map-transit-layer> -->
 
-    <map-traffic-layer [autoRefresh]="true"></map-traffic-layer>
+      <map-traffic-layer *ngIf="showLiveTraffic" [autoRefresh]="true"></map-traffic-layer>
 
-    <map-marker #marker="mapMarker" *ngFor="let markerPosition of markerPositions" [position]="markerPosition"
+    <!-- <map-marker #marker="mapMarker" *ngFor="let markerPosition of markerPositions" [position]="markerPosition"
       (mapClick)="openInfoWindow(marker)"></map-marker>
 
-    <map-info-window>Info Window content</map-info-window>
+    <map-info-window>Info Window content</map-info-window> -->
     <!-- <map-ground-overlay [url]="imageUrl"
   [bounds]="imageBounds"></map-ground-overlay> -->
   </google-map>

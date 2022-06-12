@@ -2,19 +2,23 @@
   <div>
     <ul class="navbar">
       <div class="title">Tush</div>
-      <li><a href="#about">
-          <mat-chip>
-            <mat-icon>logout</mat-icon>Logout
-          </mat-chip>
-        </a></li>
-      <li><a href="#contact">
-          <mat-chip>
-            <mat-icon>lock</mat-icon>Lock
-          </mat-chip>
-        </a></li>
-      <li><a href="#news">
-          <mat-chip selected color="accent">Notifications</mat-chip>
-        </a></li>
+      <div>
+        <!-- <li>
+          <a href="#about">
+            <mat-icon color="primary">circle_logout</mat-icon>
+          </a>
+        </li> -->
+        <li>
+          <a href="#contact">
+            <mat-icon color="primary">lock</mat-icon>
+          </a>
+        </li>
+        <li>
+          <a href="#news">
+            <mat-icon color="primary">circle_notifications</mat-icon>
+          </a>
+        </li>
+      </div>
     </ul>
   </div>
 
@@ -33,8 +37,6 @@
     </div>
   </div>
 
-  <!-- <div style="width: 100%; background-color: rgba(114, 146, 250, 0.123);"> -->
-    <router-outlet></router-outlet>
-  <!-- </div> -->
+  <router-outlet></router-outlet>
 
 </div>

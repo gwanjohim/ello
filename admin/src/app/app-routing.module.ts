@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'orders', component: OrdersComponent },
   { path: 'order-details', component: OrderDetailsComponent },
+  { path: 'order-delivery', component: OrderDeliveryComponent},
   { path: 'product', component: ProductComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'product-categories', component: ProductCategoriesComponent },

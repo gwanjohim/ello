@@ -1,51 +1,44 @@
 <div class="order-delivery-detail">
-    <div class="title">
-        <h1>order-delivery works!</h1>
+    <div class="global-title-font">
+        Order Delivery
     </div>
+    <hr>
 
 
     <div class="map">
         <div class="single-map">
-            <app-google-maps-demo></app-google-maps-demo>
+            <app-google-maps-demo [showLiveTraffic]="showLiveTraffic"></app-google-maps-demo>
         </div>
     </div>
 
-    <div class="actions-order-details">
+    <div class="actions-order-details-row">
 
-        <div>
-            <div>
-                <h3>
-                    <span>OrderId: </span>
-                    <span class="order-del-google-map-orderId"><span> <a href="">09090009999***</a> </span></span>
-                </h3>
-            </div>
+        <div class="actions-order-details-child-column">
 
-            <div>
-                <h3>
-                    <span>OrderId: </span>
-                    <span class="order-del-google-map-orderId"><span> <a href="">09090009999***</a> </span></span>
-                </h3>
-            </div>
+            <div class="label-tag">Customer Name: </div>
+            <div class="content">George Wanjohi</div>
 
-            <div>
-                <h3>
-                    <span>OrderId: </span>
-                    <span class="order-del-google-map-orderId"><span> <a href="">09090009999***</a> </span></span>
-                </h3>
-            </div>
-
+            <div class="label-tag">Phone</div>
+            <a class="content" href="tel:07077 007 337">07077 007 337</a>
         </div>
 
-        <div>
-            <div>Actions</div>
-            <hr>
+        <div class="actions-order-details-child-column">
+
             <div class="toggle-live-traffic">
-                <span>Show Live Traffic: </span>
-                <mat-slide-toggle></mat-slide-toggle>
+                <span class="label-tag">Live Traffic: </span>
+                <button class="live-traffic-toggle" (click)="toggleLiveTraffic()">
+                    <span *ngIf="showLiveTraffic == true">
+                        Hide
+                    </span>
+                    <span *ngIf="showLiveTraffic == false">
+                        Show
+                    </span>
+                </button>
+
             </div>
 
             <div>
-                <button mat-elevated-button class="leave-now-button">Leave Now?</button>
+                <button mat-elevated-button class="leave-now-button">Start Delivery</button>
             </div>
             <div>
                 <button mat-elevated-button class="leave-now-button">Finish Delivery</button>

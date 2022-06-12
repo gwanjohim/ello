@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderDeliveryComponent implements OnInit {
 
+  showLiveTraffic = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleLiveTraffic(){
+    this.showLiveTraffic = !this.showLiveTraffic;
   }
 
 }
