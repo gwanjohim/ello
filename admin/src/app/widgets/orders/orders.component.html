@@ -43,7 +43,7 @@
 
 
     <dx-data-grid [dataSource]="dataSource" keyExpr="Id" (onRowClick)="viewOrder($event)" [rowAlternationEnabled]="true"
-        [showBorders]="true" class="display-grid" [focusedRowEnabled]="true" [scrolling]="scrolling" [paging]="paging">
+        [showBorders]="true" class="global-display-grid" [focusedRowEnabled]="true" [scrolling]="scrolling" [paging]="paging">
         <dxi-column dataField="CreationDate" cellTemplate="dateTemplate"></dxi-column>
         <!-- <dxi-column dataField="TotalAmount"></dxi-column> -->
         <dxi-column dataField="OrderStatus" cellTemplate="statusTemplate"></dxi-column>

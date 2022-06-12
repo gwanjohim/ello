@@ -35,7 +35,7 @@ justify-content: space-between;">
 
     <div>
         <dx-data-grid [dataSource]="dataSource" keyExpr="Id" (onRowClick)="viewProduct($event)"
-            [rowAlternationEnabled]="true" [showBorders]="true" class="display-grid" [focusedRowEnabled]="true">
+            [rowAlternationEnabled]="true" [showBorders]="true" class="global-display-grid" [focusedRowEnabled]="true">
             <dxi-column dataField="Image" cellTemplate="cellTemplate"></dxi-column>
             <div *dxTemplate="let cell of 'cellTemplate'">
                 <img style="height: 50px;" src="{{cell.text}}">

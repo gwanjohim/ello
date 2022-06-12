@@ -17,7 +17,7 @@ body {
 }
 
 
-.display-grid {
+.global-display-grid {
   height: 60vh;
 }
 
@@ -66,7 +66,7 @@ body {
   }
 }
 
-.flex-row {
+.navigation-links-row {
   display: flex;
   flex-direction: row;
 
@@ -76,8 +76,5 @@ body {
 }
 
 .global-single-page {
-  width: 90%; // the width of a page item
-  margin: auto;
+  padding: 2%;
 }
-
-// Nav barTush
